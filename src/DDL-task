@@ -1,0 +1,85 @@
+--------------------intellig idae---------------------------
+CREATE TABLE Student(
+    Id SERIAL PRIMARY KEY,
+    First_name VARCHAR(50) NOT NULL,
+    Last_name VARCHAR(50) NOT NULL,
+    Age int,
+    PhoneNumber INTEGER,
+    Email VARCHAR(50)UNIQUE,
+    Stage int,
+    Course_id int references course(id)
+);
+alter table Student add constraint PhoneNumber unique (phonenumber);
+
+insert into Student(first_name, last_name, age, phonenumber, email,stage)
+values ('Asan','Asanov',24,'0704124523','Asan.a@mail.com',2);
+
+create table Course(
+    Id serial primary key ,
+    name varchar(50) unique not null
+);
+
+insert into Course(name)
+values ('Peaksoft');
+
+
+create table Teacher(
+    Id serial primary key ,
+    first_name varchar(50),
+    last_name varchar(50),
+    specialist varchar(50),
+    experience int
+);
+
+insert into Teacher(first_name, last_name, specialist, experience)
+values('Bazarbai uulu','Rahim','backend',3);
+
+create table Lesson(
+    Id serial primary key ,
+    name varchar(256) not null
+);
+
+insert into Lesson(name)
+values ('java backend');
+
+create table Task(
+    Id serial primary key ,
+    name varchar(256),
+    Deadline date not null
+);
+insert into Task(name, Deadline)
+VALUES ('PostgreSql','2023.01.09')
+
+------------------------------PgAdmin------------------------------
+create table Farm(
+	id serial PRIMARY KEY,
+	name varchar(50) not null,
+	owner varchar(50) not null
+);
+drop table Farm;
+select * from Farm;
+
+insert into Farm(name,owner) values ('Adal-Et','Bekzat Isakov');
+
+create table Cow(
+	ID serial PRIMARY key,
+	Weight int,
+	color varchar(50),
+	Kind varchar(50)
+);
+alter table cow drop column cows;
+
+insert into Cow(weight, color, kind)
+values (600,'black','Angus');
+
+create table Sheaps(
+	id serial primary key,
+	Weight int,
+	color varchar(50),
+	kind varchar(50)
+);
+insert into Sheaps(weight,color,kind)
+values(120,'blue','Gisar')
+
+select * from Sheaps
+drop table sheaps
